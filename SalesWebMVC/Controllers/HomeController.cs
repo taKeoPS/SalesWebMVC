@@ -20,6 +20,7 @@ namespace SalesWebMVC.Controllers
         {
             ViewData["Message"] = "Sistema Web de vendas.";
             ViewData["Email"] = "philipe.shima@gmail.com";
+            ViewData["Email2"] = "davi.yshima@gmail.com";
 
             return View();
         }
