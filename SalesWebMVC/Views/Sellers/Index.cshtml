@@ -1,9 +1,62 @@
-﻿
+﻿@model IEnumerable<SalesWebMVC.Models.Seller>
+
+
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Vendedores";
 }
 
-<h2>Vendedores</h2>
+<h2>@ViewData["Title"]</h2>
 
 
-<p>Vendedores</p>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr class="success">
+            <th>
+                <!-- @Html.DisplayNameFor(model => model.Name) -->
+                @Html.DisplayName("Nome")
+            </th>
+            <th>
+                <!-- @Html.DisplayNameFor(model => model.Email) -->
+                @Html.DisplayName("E-mail")
+            </th>
+            <th>
+                <!-- @Html.DisplayNameFor(model => model.BirthDate) -->
+                @Html.DisplayName("Data de Nascimento")
+            </th>
+            <th>
+                <!-- @Html.DisplayNameFor(model => model.BaseSalary) -->
+                @Html.DisplayName("Salário base")
+            </th>
+            <th></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name) <!-- expressão lambda -->
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email) <!-- expressão lambda -->
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BirthDate) <!-- expressão lambda -->
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BaseSalary) <!-- expressão lambda -->
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.id">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.id">Detalhes</a> |
+                    <a asp-action="Delete" asp-route-id="@item.id">Deletar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+
+
+
+</table>

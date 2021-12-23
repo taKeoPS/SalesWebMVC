@@ -8,18 +8,20 @@ namespace SalesWebMVC.Services
 {
     public class SellerService
     {
-        private readonly SalesWebMVCContext _context;
+        private readonly SalesWebMVCContext _context; // declarando dependencia
 
         public SellerService(SalesWebMVCContext context)
         {
             _context = context;
         }
-
+        // Injeção de dependencia...
 
         public List<Seller> FindAll()
         {
             return _context.Seller.ToList();
         }
+
+        
 
 
 
