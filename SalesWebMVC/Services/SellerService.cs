@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace SalesWebMVC.Services
 {
@@ -31,10 +32,10 @@ namespace SalesWebMVC.Services
         }
 
 
-        //Deletar Seller
+        //Buscar por ID Seller, usado no Deletar e Alterar
         public Seller FindById(int id)
         {
-            return _context.Seller.FirstOrDefault(obj => obj.Id == id);
+            return _context.Seller.Include(obj => obj.Department).FirstOrDefault(obj => obj.Id == id);  //o INCLUDE é como se fizesse um JOIN na consulta no banco. namespace entityframework
         }
 
         public void Remove(int id)
