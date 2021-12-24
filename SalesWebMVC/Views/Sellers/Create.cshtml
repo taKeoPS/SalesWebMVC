@@ -1,4 +1,4 @@
-﻿@model SalesWebMVC.Models.Seller
+﻿@model SalesWebMVC.Models.ViewModels.SellerFormViewModel
 
 @{
     ViewData["Title"] = "Criar novo";
@@ -13,23 +13,31 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div class="form-group">
-                <label asp-for="Name" class="control-label">Nome</label> <!--Objeto do tipo Seller, tem que declarar a classe Seller lá em cima...-->
-                <input asp-for="Name" class="form-control" />
+                <label asp-for="Seller.Name" class="control-label">Nome</label> <!--Objeto do tipo Seller, tem que declarar a classe Seller lá em cima...-->
+                <input asp-for="Seller.Name" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Email" class="control-label">E-mail</label> <!--Objeto do tipo Seller, tem que declarar a classe Seller lá em cima...-->
-                <input asp-for="Email" class="form-control" />
+                <label asp-for="Seller.Email" class="control-label">E-mail</label> <!--Objeto do tipo Seller, tem que declarar a classe Seller lá em cima...-->
+                <input asp-for="Seller.Email" class="form-control" />
             </div>
 
             <div class="form-group">
-                <label asp-for="BirthDate" class="control-label">Data de nascimento</label> <!--Objeto do tipo Seller, tem que declarar a classe Seller lá em cima...-->
-                <input asp-for="BirthDate" class="form-control" />
+                <label asp-for="Seller.BirthDate" class="control-label">Data de nascimento</label> <!--Objeto do tipo Seller, tem que declarar a classe Seller lá em cima...-->
+                <input asp-for="Seller.BirthDate" class="form-control" />
             </div>
 
             <div class="form-group">
-                <label asp-for="BaseSalary" class="control-label">Salário base</label> <!--Objeto do tipo Seller, tem que declarar a classe Seller lá em cima...-->
-                <input asp-for="BaseSalary" class="form-control" />
+                <label asp-for="Seller.BaseSalary" class="control-label">Salário base</label> <!--Objeto do tipo Seller, tem que declarar a classe Seller lá em cima...-->
+                <input asp-for="Seller.BaseSalary" class="form-control" />
             </div>
+
+            <!-- Caixa de seleção-->
+            <div class="form-group">
+                <label asp-for="Seller.DepartmentId" class="control-label"></label>
+                <select asp-for="Seller.DepartmentId" asp-items="@(new SelectList(Model.Departments,"Id","Name"))" class="form-control"></select>
+            </div>
+
+
             <div class="form-group">
                 <input type="submit" value="Criar" class="btn btn-default" />
             </div>
